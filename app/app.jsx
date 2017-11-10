@@ -8,16 +8,7 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
-import './../playground/firebase/index';
-
-store.subscribe(() => {
-  var state = store.getState();
-  console.log('New state', state);
-  TodoAPI.setTodos(state.todos);
-});
-
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.startAddTodos());
 
 // Load foundation
 $(document).foundation();
@@ -26,8 +17,8 @@ $(document).foundation();
 require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
-  <Provider store={store}>
-    <TodoApp/>
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <TodoApp/>
+    </Provider>,
+    document.getElementById('app')
 );
