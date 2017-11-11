@@ -20,18 +20,10 @@ firebaseRef.set({
     },
     isRunning: true,
     user: {
-        name: 'Tài',
-        age: 36
+        name: 'Andrew',
+        age: 25
     }
-}).then(() => {
-    console.log('Set worked!');
-}, (e) => {
-    console.log('Set failed');
-})
-
-// firebaseRef.set({
-//   appName: 'Todo Application'
-// });
+});
 
 var todosRef = firebaseRef.child('todos');
 
